@@ -1,0 +1,23 @@
+{
+  "collectionName": "components_sections_challenges_grid",
+  "info": {
+    "displayName": "Thách Thức Grid",
+    "description": "Grid hiển thị các thách thức"
+  },
+  "options": {},
+  "attributes": {
+    "tieu_de": {
+      "type": "string"
+    },
+    "hinh_anh": {
+      "type": "media",
+      "allowedTypes": ["images"],
+      "multiple": false
+    },
+    "thach_thuc": {
+      "type": "component",
+      "repeatable": true,
+      "component": "blocks.feature-item"
+    }
+  }
+}

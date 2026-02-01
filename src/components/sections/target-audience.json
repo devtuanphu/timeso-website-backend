@@ -1,0 +1,22 @@
+{
+  "collectionName": "components_sections_target_audience",
+  "info": {
+    "displayName": "Đối Tượng Khách Hàng",
+    "description": "Section hiển thị các đối tượng khách hàng mục tiêu"
+  },
+  "options": {},
+  "attributes": {
+    "tieu_de": {
+      "type": "string",
+      "required": true
+    },
+    "mo_ta": {
+      "type": "text"
+    },
+    "doi_tuong": {
+      "type": "component",
+      "repeatable": true,
+      "component": "blocks.target-audience-item"
+    }
+  }
+}

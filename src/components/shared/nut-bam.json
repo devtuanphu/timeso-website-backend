@@ -1,0 +1,23 @@
+{
+  "collectionName": "components_shared_nut_bam",
+  "info": {
+    "displayName": "Nút Bấm",
+    "description": "CTA button với text và link"
+  },
+  "options": {},
+  "attributes": {
+    "noi_dung": {
+      "type": "string",
+      "required": true
+    },
+    "duong_dan": {
+      "type": "string",
+      "required": true
+    },
+    "loai": {
+      "type": "enumeration",
+      "enum": ["primary", "secondary", "outline"],
+      "default": "primary"
+    }
+  }
+}

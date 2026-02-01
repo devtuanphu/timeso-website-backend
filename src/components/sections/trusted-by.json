@@ -1,0 +1,18 @@
+{
+  "collectionName": "components_sections_trusted_by",
+  "info": {
+    "displayName": "Đối Tác Tin Tưởng",
+    "description": "Section hiển thị logo các đối tác"
+  },
+  "options": {},
+  "attributes": {
+    "tieu_de": {
+      "type": "string"
+    },
+    "logos": {
+      "type": "media",
+      "allowedTypes": ["images"],
+      "multiple": true
+    }
+  }
+}

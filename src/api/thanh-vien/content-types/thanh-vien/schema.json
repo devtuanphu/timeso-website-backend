@@ -1,0 +1,35 @@
+{
+  "kind": "collectionType",
+  "collectionName": "thanh_viens",
+  "info": {
+    "singularName": "thanh-vien",
+    "pluralName": "thanh-viens",
+    "displayName": "Thành Viên",
+    "description": "Team members"
+  },
+  "options": {
+    "draftAndPublish": false
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "ten": {
+      "type": "string",
+      "required": true
+    },
+    "chuc_vu": {
+      "type": "string"
+    },
+    "mo_ta": {
+      "type": "text"
+    },
+    "avatar": {
+      "type": "media",
+      "allowedTypes": ["images"],
+      "multiple": false
+    },
+    "thu_tu": {
+      "type": "integer",
+      "default": 0
+    }
+  }
+}

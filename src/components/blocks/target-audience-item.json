@@ -1,0 +1,22 @@
+{
+  "collectionName": "components_blocks_target_audience_item",
+  "info": {
+    "displayName": "Đối Tượng",
+    "description": "Item trong section đối tượng khách hàng"
+  },
+  "options": {},
+  "attributes": {
+    "tieu_de": {
+      "type": "string",
+      "required": true
+    },
+    "mo_ta": {
+      "type": "text"
+    },
+    "icon": {
+      "type": "media",
+      "allowedTypes": ["images"],
+      "multiple": false
+    }
+  }
+}

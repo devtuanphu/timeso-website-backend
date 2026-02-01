@@ -1,0 +1,22 @@
+{
+  "collectionName": "components_sections_pricing_section",
+  "info": {
+    "displayName": "Bảng Giá Section",
+    "description": "Section hiển thị các gói giá"
+  },
+  "options": {},
+  "attributes": {
+    "tieu_de": {
+      "type": "string",
+      "default": "Chọn gói phù hợp!"
+    },
+    "mo_ta": {
+      "type": "text"
+    },
+    "goi_gia": {
+      "type": "component",
+      "repeatable": true,
+      "component": "blocks.pricing-plan"
+    }
+  }
+}

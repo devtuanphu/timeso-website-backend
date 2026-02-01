@@ -1,0 +1,22 @@
+{
+  "collectionName": "components_sections_user_stories",
+  "info": {
+    "displayName": "Câu Chuyện Người Dùng",
+    "description": "Section hiển thị các user stories"
+  },
+  "options": {},
+  "attributes": {
+    "tieu_de": {
+      "type": "string",
+      "required": true
+    },
+    "mo_ta": {
+      "type": "text"
+    },
+    "stories": {
+      "type": "component",
+      "repeatable": true,
+      "component": "blocks.user-story"
+    }
+  }
+}

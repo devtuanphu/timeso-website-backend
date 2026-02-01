@@ -1,0 +1,19 @@
+{
+  "collectionName": "components_shared_hinh_anh",
+  "info": {
+    "displayName": "Hình Ảnh",
+    "description": "Component hình ảnh với alt text"
+  },
+  "options": {},
+  "attributes": {
+    "hinh": {
+      "type": "media",
+      "allowedTypes": ["images"],
+      "multiple": false,
+      "required": true
+    },
+    "alt_text": {
+      "type": "string"
+    }
+  }
+}

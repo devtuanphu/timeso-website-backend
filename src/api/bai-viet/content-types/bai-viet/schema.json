@@ -1,0 +1,56 @@
+{
+  "kind": "collectionType",
+  "collectionName": "bai_viets",
+  "info": {
+    "singularName": "bai-viet",
+    "pluralName": "bai-viets",
+    "displayName": "Bài Viết",
+    "description": "Blog posts"
+  },
+  "options": {
+    "draftAndPublish": false
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "tieu_de": {
+      "type": "string",
+      "required": true
+    },
+    "slug": {
+      "type": "uid",
+      "targetField": "tieu_de",
+      "required": true
+    },
+    "mo_ta": {
+      "type": "text"
+    },
+    "noi_dung": {
+      "type": "richtext"
+    },
+    "hinh_dai_dien": {
+      "type": "media",
+      "allowedTypes": ["images"],
+      "multiple": false
+    },
+    "tac_gia": {
+      "type": "string"
+    },
+    "danh_muc": {
+      "type": "enumeration",
+      "enum": ["quan-tri-nhan-su", "cong-nghe-ai", "quan-ly-hieu-suat", "quan-ly-du-lieu"],
+      "default": "quan-tri-nhan-su"
+    },
+    "tags": {
+      "type": "json"
+    },
+    "seo": {
+      "type": "component",
+      "repeatable": false,
+      "component": "shared.seo-meta"
+    },
+    "noi_bat": {
+      "type": "boolean",
+      "default": false
+    }
+  }
+}

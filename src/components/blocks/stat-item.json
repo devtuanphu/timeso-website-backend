@@ -1,0 +1,21 @@
+{
+  "collectionName": "components_blocks_stat_item",
+  "info": {
+    "displayName": "Thống Kê",
+    "description": "Item thống kê với số và label"
+  },
+  "options": {},
+  "attributes": {
+    "gia_tri": {
+      "type": "string",
+      "required": true
+    },
+    "hau_to": {
+      "type": "string"
+    },
+    "mo_ta": {
+      "type": "string",
+      "required": true
+    }
+  }
+}

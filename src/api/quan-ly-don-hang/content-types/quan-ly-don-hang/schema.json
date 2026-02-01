@@ -1,0 +1,41 @@
+{
+  "kind": "singleType",
+  "collectionName": "quan_ly_don_hangs",
+  "info": {
+    "singularName": "quan-ly-don-hang",
+    "pluralName": "quan-ly-don-hangs",
+    "displayName": "Quản Lý Đơn Hàng",
+    "description": "Nội dung trang Quản Lý Đơn Hàng"
+  },
+  "options": {
+    "draftAndPublish": false
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "seo": {
+      "type": "component",
+      "repeatable": false,
+      "component": "shared.seo-meta"
+    },
+    "hero": {
+      "type": "component",
+      "repeatable": false,
+      "component": "sections.hero-section"
+    },
+    "tinh_nang": {
+      "type": "component",
+      "repeatable": true,
+      "component": "sections.feature-card"
+    },
+    "da_linh_vuc": {
+      "type": "component",
+      "repeatable": false,
+      "component": "sections.da-linh-vuc"
+    },
+    "cta": {
+      "type": "component",
+      "repeatable": false,
+      "component": "sections.cta-section"
+    }
+  }
+}

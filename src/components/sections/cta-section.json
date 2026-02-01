@@ -1,0 +1,32 @@
+{
+  "collectionName": "components_sections_cta_section",
+  "info": {
+    "displayName": "CTA Section",
+    "description": "Call to action section với tiêu đề, mô tả và badges"
+  },
+  "options": {},
+  "attributes": {
+    "tieu_de": {
+      "type": "string",
+      "required": true
+    },
+    "mo_ta": {
+      "type": "text"
+    },
+    "hinh_anh": {
+      "type": "media",
+      "allowedTypes": ["images"],
+      "multiple": false
+    },
+    "mau_nen": {
+      "type": "string",
+      "default": "#E6FEFF"
+    },
+    "app_store_url": {
+      "type": "string"
+    },
+    "google_play_url": {
+      "type": "string"
+    }
+  }
+}
