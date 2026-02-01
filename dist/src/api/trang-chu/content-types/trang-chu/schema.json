@@ -1,0 +1,86 @@
+{
+    "kind": "singleType",
+    "collectionName": "trang_chus",
+    "info": {
+        "singularName": "trang-chu",
+        "pluralName": "trang-chus",
+        "displayName": "Trang Chủ",
+        "description": "Nội dung trang chủ"
+    },
+    "options": {
+        "draftAndPublish": false
+    },
+    "pluginOptions": {},
+    "attributes": {
+        "seo": {
+            "type": "component",
+            "repeatable": false,
+            "component": "shared.seo-meta"
+        },
+        "hero": {
+            "type": "component",
+            "repeatable": false,
+            "component": "sections.hero-section"
+        },
+        "trusted_by": {
+            "type": "component",
+            "repeatable": false,
+            "component": "sections.trusted-by"
+        },
+        "why_choose": {
+            "type": "component",
+            "repeatable": false,
+            "component": "sections.why-choose"
+        },
+        "all_in_one": {
+            "type": "component",
+            "repeatable": false,
+            "component": "sections.all-in-one"
+        },
+        "ai_section": {
+            "type": "component",
+            "repeatable": false,
+            "component": "sections.ai-section"
+        },
+        "cyan_banner": {
+            "type": "component",
+            "repeatable": false,
+            "component": "sections.cyan-banner"
+        },
+        "target_audience": {
+            "type": "component",
+            "repeatable": false,
+            "component": "sections.target-audience"
+        },
+        "user_stories": {
+            "type": "component",
+            "repeatable": false,
+            "component": "sections.user-stories"
+        },
+        "comparison": {
+            "type": "component",
+            "repeatable": false,
+            "component": "sections.comparison"
+        },
+        "pricing": {
+            "type": "component",
+            "repeatable": false,
+            "component": "sections.pricing-section"
+        },
+        "testimonials": {
+            "type": "component",
+            "repeatable": false,
+            "component": "sections.testimonials"
+        },
+        "cta": {
+            "type": "component",
+            "repeatable": false,
+            "component": "sections.cta-section"
+        },
+        "bai_viet_noi_bat": {
+            "type": "relation",
+            "relation": "oneToMany",
+            "target": "api::bai-viet.bai-viet"
+        }
+    }
+}

@@ -1,0 +1,22 @@
+{
+    "collectionName": "components_sections_cyan_banner",
+    "info": {
+        "displayName": "Banner Màu",
+        "description": "Banner nổi bật với thống kê"
+    },
+    "options": {},
+    "attributes": {
+        "tieu_de": {
+            "type": "string",
+            "required": true
+        },
+        "tieu_de_phu": {
+            "type": "string"
+        },
+        "thong_ke": {
+            "type": "component",
+            "repeatable": true,
+            "component": "blocks.stat-item"
+        }
+    }
+}

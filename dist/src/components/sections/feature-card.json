@@ -1,0 +1,26 @@
+{
+    "collectionName": "components_sections_feature_card",
+    "info": {
+        "displayName": "Feature Card",
+        "description": "Card tính năng với tiêu đề, danh sách và hình ảnh"
+    },
+    "options": {},
+    "attributes": {
+        "tieu_de": {
+            "type": "string",
+            "required": true
+        },
+        "danh_sach": {
+            "type": "json"
+        },
+        "hinh_anh": {
+            "type": "media",
+            "allowedTypes": ["images"],
+            "multiple": false
+        },
+        "mau_nen": {
+            "type": "string",
+            "default": "#f5f5f5"
+        }
+    }
+}

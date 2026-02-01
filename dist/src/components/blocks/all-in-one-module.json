@@ -1,0 +1,25 @@
+{
+    "collectionName": "components_blocks_all_in_one_module",
+    "info": {
+        "displayName": "Module Tính Năng",
+        "description": "Module trong section All-in-One"
+    },
+    "options": {},
+    "attributes": {
+        "tieu_de": {
+            "type": "string",
+            "required": true
+        },
+        "mo_ta": {
+            "type": "text"
+        },
+        "hinh_anh": {
+            "type": "media",
+            "allowedTypes": ["images"],
+            "multiple": false
+        },
+        "link": {
+            "type": "string"
+        }
+    }
+}

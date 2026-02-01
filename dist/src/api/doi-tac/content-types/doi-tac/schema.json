@@ -1,0 +1,33 @@
+{
+    "kind": "collectionType",
+    "collectionName": "doi_tacs",
+    "info": {
+        "singularName": "doi-tac",
+        "pluralName": "doi-tacs",
+        "displayName": "Đối Tác",
+        "description": "Partner logos"
+    },
+    "options": {
+        "draftAndPublish": false
+    },
+    "pluginOptions": {},
+    "attributes": {
+        "ten": {
+            "type": "string",
+            "required": true
+        },
+        "logo": {
+            "type": "media",
+            "allowedTypes": ["images"],
+            "multiple": false,
+            "required": true
+        },
+        "website": {
+            "type": "string"
+        },
+        "thu_tu": {
+            "type": "integer",
+            "default": 0
+        }
+    }
+}

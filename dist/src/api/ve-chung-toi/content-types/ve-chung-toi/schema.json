@@ -1,0 +1,49 @@
+{
+    "kind": "singleType",
+    "collectionName": "ve_chung_tois",
+    "info": {
+        "singularName": "ve-chung-toi",
+        "pluralName": "ve-chung-tois",
+        "displayName": "Về Chúng Tôi",
+        "description": "Nội dung trang Về Chúng Tôi"
+    },
+    "options": {
+        "draftAndPublish": false
+    },
+    "pluginOptions": {},
+    "attributes": {
+        "seo": {
+            "type": "component",
+            "repeatable": false,
+            "component": "shared.seo-meta"
+        },
+        "hero": {
+            "type": "component",
+            "repeatable": false,
+            "component": "sections.hero-section"
+        },
+        "cau_chuyen": {
+            "type": "richtext"
+        },
+        "hinh_cau_chuyen": {
+            "type": "media",
+            "allowedTypes": ["images"],
+            "multiple": false
+        },
+        "gia_tri_cot_loi": {
+            "type": "component",
+            "repeatable": true,
+            "component": "blocks.feature-item"
+        },
+        "doi_ngu": {
+            "type": "relation",
+            "relation": "oneToMany",
+            "target": "api::thanh-vien.thanh-vien"
+        },
+        "cta": {
+            "type": "component",
+            "repeatable": false,
+            "component": "sections.cta-section"
+        }
+    }
+}

@@ -1,0 +1,29 @@
+{
+    "kind": "singleType",
+    "collectionName": "trang_blogs",
+    "info": {
+        "singularName": "trang-blog",
+        "pluralName": "trang-blogs",
+        "displayName": "Trang Blog",
+        "description": "Nội dung trang danh sách Blog"
+    },
+    "options": {
+        "draftAndPublish": false
+    },
+    "pluginOptions": {},
+    "attributes": {
+        "seo": {
+            "type": "component",
+            "repeatable": false,
+            "component": "shared.seo-meta"
+        },
+        "hero": {
+            "type": "component",
+            "repeatable": false,
+            "component": "sections.hero-section"
+        },
+        "mo_ta_trang": {
+            "type": "text"
+        }
+    }
+}

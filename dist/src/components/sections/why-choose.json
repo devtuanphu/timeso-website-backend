@@ -1,0 +1,24 @@
+{
+    "collectionName": "components_sections_why_choose",
+    "info": {
+        "displayName": "Lý Do Chọn",
+        "description": "Section lý do nên chọn với các card"
+    },
+    "options": {},
+    "attributes": {
+        "tieu_de": {
+            "type": "string",
+            "default": "Lý do nên chọn Timeso?"
+        },
+        "hinh_nen": {
+            "type": "media",
+            "allowedTypes": ["images"],
+            "multiple": false
+        },
+        "cac_ly_do": {
+            "type": "component",
+            "repeatable": true,
+            "component": "blocks.feature-item"
+        }
+    }
+}

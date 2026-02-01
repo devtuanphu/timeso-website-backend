@@ -1,0 +1,56 @@
+{
+    "kind": "singleType",
+    "collectionName": "tuyen_dungs",
+    "info": {
+        "singularName": "tuyen-dung",
+        "pluralName": "tuyen-dungs",
+        "displayName": "Tuyển Dụng",
+        "description": "Nội dung trang Tuyển Dụng"
+    },
+    "options": {
+        "draftAndPublish": false
+    },
+    "pluginOptions": {},
+    "attributes": {
+        "seo": {
+            "type": "component",
+            "repeatable": false,
+            "component": "shared.seo-meta"
+        },
+        "hero": {
+            "type": "component",
+            "repeatable": false,
+            "component": "sections.hero-section"
+        },
+        "dich_vu": {
+            "type": "component",
+            "repeatable": false,
+            "component": "sections.services-grid"
+        },
+        "da_linh_vuc": {
+            "type": "component",
+            "repeatable": false,
+            "component": "sections.da-linh-vuc"
+        },
+        "thach_thuc": {
+            "type": "component",
+            "repeatable": false,
+            "component": "sections.challenges-grid"
+        },
+        "giai_phap": {
+            "type": "component",
+            "repeatable": false,
+            "component": "sections.solutions-grid"
+        },
+        "why_choose": {
+            "type": "component",
+            "repeatable": false,
+            "component": "sections.why-choose"
+        },
+        "cta": {
+            "type": "component",
+            "repeatable": false,
+            "component": "sections.cta-section"
+        }
+    }
+}

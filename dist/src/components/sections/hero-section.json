@@ -1,0 +1,32 @@
+{
+    "collectionName": "components_sections_hero_section",
+    "info": {
+        "displayName": "Hero Section",
+        "description": "Section hero với tiêu đề, mô tả và video"
+    },
+    "options": {},
+    "attributes": {
+        "tieu_de": {
+            "type": "string",
+            "required": true
+        },
+        "mo_ta": {
+            "type": "text"
+        },
+        "hien_thi_badges": {
+            "type": "boolean",
+            "default": true
+        },
+        "app_store_url": {
+            "type": "string"
+        },
+        "google_play_url": {
+            "type": "string"
+        },
+        "video": {
+            "type": "media",
+            "allowedTypes": ["videos"],
+            "multiple": false
+        }
+    }
+}

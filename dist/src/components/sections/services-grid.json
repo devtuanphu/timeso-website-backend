@@ -1,0 +1,29 @@
+{
+    "collectionName": "components_sections_services_grid",
+    "info": {
+        "displayName": "Dịch Vụ Grid",
+        "description": "Grid hiển thị các dịch vụ"
+    },
+    "options": {},
+    "attributes": {
+        "tieu_de_phu": {
+            "type": "string"
+        },
+        "tieu_de": {
+            "type": "string"
+        },
+        "mo_ta": {
+            "type": "text"
+        },
+        "dich_vu": {
+            "type": "component",
+            "repeatable": true,
+            "component": "blocks.feature-item"
+        },
+        "hinh_anh": {
+            "type": "media",
+            "allowedTypes": ["images"],
+            "multiple": false
+        }
+    }
+}

@@ -1,0 +1,46 @@
+{
+    "kind": "singleType",
+    "collectionName": "sap_ca_thong_minhs",
+    "info": {
+        "singularName": "sap-ca-thong-minh",
+        "pluralName": "sap-ca-thong-minhs",
+        "displayName": "Sắp Ca Thông Minh",
+        "description": "Nội dung trang Sắp Ca Thông Minh"
+    },
+    "options": {
+        "draftAndPublish": false
+    },
+    "pluginOptions": {},
+    "attributes": {
+        "seo": {
+            "type": "component",
+            "repeatable": false,
+            "component": "shared.seo-meta"
+        },
+        "hero": {
+            "type": "component",
+            "repeatable": false,
+            "component": "sections.hero-section"
+        },
+        "tinh_nang": {
+            "type": "component",
+            "repeatable": true,
+            "component": "sections.feature-card"
+        },
+        "da_linh_vuc": {
+            "type": "component",
+            "repeatable": false,
+            "component": "sections.da-linh-vuc"
+        },
+        "why_choose": {
+            "type": "component",
+            "repeatable": false,
+            "component": "sections.why-choose"
+        },
+        "cta": {
+            "type": "component",
+            "repeatable": false,
+            "component": "sections.cta-section"
+        }
+    }
+}

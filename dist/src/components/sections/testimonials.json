@@ -1,0 +1,19 @@
+{
+    "collectionName": "components_sections_testimonials",
+    "info": {
+        "displayName": "Đánh Giá Section",
+        "description": "Section hiển thị các đánh giá từ khách hàng"
+    },
+    "options": {},
+    "attributes": {
+        "tieu_de": {
+            "type": "string",
+            "default": "Khách hàng nói gì về chúng tôi?"
+        },
+        "danh_gia": {
+            "type": "component",
+            "repeatable": true,
+            "component": "blocks.testimonial-item"
+        }
+    }
+}

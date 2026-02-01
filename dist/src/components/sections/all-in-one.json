@@ -1,0 +1,25 @@
+{
+    "collectionName": "components_sections_all_in_one",
+    "info": {
+        "displayName": "Tất Cả Trong Một",
+        "description": "Section hiển thị các modules/tính năng với tabs"
+    },
+    "options": {},
+    "attributes": {
+        "tieu_de": {
+            "type": "string",
+            "required": true
+        },
+        "tieu_de_phu": {
+            "type": "string"
+        },
+        "mo_ta": {
+            "type": "text"
+        },
+        "modules": {
+            "type": "component",
+            "repeatable": true,
+            "component": "blocks.all-in-one-module"
+        }
+    }
+}

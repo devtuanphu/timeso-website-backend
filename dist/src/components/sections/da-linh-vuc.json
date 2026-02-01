@@ -1,0 +1,28 @@
+{
+    "collectionName": "components_sections_da_linh_vuc",
+    "info": {
+        "displayName": "Đa Lĩnh Vực",
+        "description": "Section thống kê đa lĩnh vực với số liệu và hình ảnh"
+    },
+    "options": {},
+    "attributes": {
+        "tieu_de_phu": {
+            "type": "string",
+            "default": "Phát triển ứng dụng"
+        },
+        "tieu_de": {
+            "type": "string",
+            "default": "ĐA LĨNH VỰC"
+        },
+        "thong_ke": {
+            "type": "component",
+            "repeatable": true,
+            "component": "blocks.stat-item"
+        },
+        "hinh_anh": {
+            "type": "media",
+            "allowedTypes": ["images"],
+            "multiple": true
+        }
+    }
+}

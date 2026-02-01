@@ -1,0 +1,46 @@
+{
+    "kind": "singleType",
+    "collectionName": "quan_ly_nhan_sus",
+    "info": {
+        "singularName": "quan-ly-nhan-su",
+        "pluralName": "quan-ly-nhan-sus",
+        "displayName": "Quản Lý Nhân Sự",
+        "description": "Nội dung trang Quản Lý Nhân Sự"
+    },
+    "options": {
+        "draftAndPublish": false
+    },
+    "pluginOptions": {},
+    "attributes": {
+        "seo": {
+            "type": "component",
+            "repeatable": false,
+            "component": "shared.seo-meta"
+        },
+        "hero": {
+            "type": "component",
+            "repeatable": false,
+            "component": "sections.hero-section"
+        },
+        "tinh_nang": {
+            "type": "component",
+            "repeatable": true,
+            "component": "sections.feature-card"
+        },
+        "da_linh_vuc": {
+            "type": "component",
+            "repeatable": false,
+            "component": "sections.da-linh-vuc"
+        },
+        "why_choose": {
+            "type": "component",
+            "repeatable": false,
+            "component": "sections.why-choose"
+        },
+        "cta": {
+            "type": "component",
+            "repeatable": false,
+            "component": "sections.cta-section"
+        }
+    }
+}

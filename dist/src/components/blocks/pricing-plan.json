@@ -1,0 +1,36 @@
+{
+    "collectionName": "components_blocks_pricing_plan",
+    "info": {
+        "displayName": "Gói Giá",
+        "description": "Pricing plan với tên, giá và tính năng"
+    },
+    "options": {},
+    "attributes": {
+        "ten_goi": {
+            "type": "string",
+            "required": true
+        },
+        "gia": {
+            "type": "string",
+            "required": true
+        },
+        "don_vi": {
+            "type": "string",
+            "default": "/tháng"
+        },
+        "mo_ta": {
+            "type": "text"
+        },
+        "tinh_nang": {
+            "type": "json"
+        },
+        "noi_bat": {
+            "type": "boolean",
+            "default": false
+        },
+        "nut_text": {
+            "type": "string",
+            "default": "Bắt đầu"
+        }
+    }
+}

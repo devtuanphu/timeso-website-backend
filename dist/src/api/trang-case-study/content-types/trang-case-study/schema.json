@@ -1,0 +1,29 @@
+{
+    "kind": "singleType",
+    "collectionName": "trang_case_studies",
+    "info": {
+        "singularName": "trang-case-study",
+        "pluralName": "trang-case-studies",
+        "displayName": "Trang Case Study",
+        "description": "Nội dung trang danh sách Case Study"
+    },
+    "options": {
+        "draftAndPublish": false
+    },
+    "pluginOptions": {},
+    "attributes": {
+        "seo": {
+            "type": "component",
+            "repeatable": false,
+            "component": "shared.seo-meta"
+        },
+        "hero": {
+            "type": "component",
+            "repeatable": false,
+            "component": "sections.hero-section"
+        },
+        "mo_ta_trang": {
+            "type": "text"
+        }
+    }
+}

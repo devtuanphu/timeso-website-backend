@@ -1,0 +1,50 @@
+{
+    "kind": "collectionType",
+    "collectionName": "case_studies",
+    "info": {
+        "singularName": "case-study",
+        "pluralName": "case-studies",
+        "displayName": "Case Study",
+        "description": "Customer success stories"
+    },
+    "options": {
+        "draftAndPublish": false
+    },
+    "pluginOptions": {},
+    "attributes": {
+        "tieu_de": {
+            "type": "string",
+            "required": true
+        },
+        "slug": {
+            "type": "uid",
+            "targetField": "tieu_de",
+            "required": true
+        },
+        "mo_ta": {
+            "type": "text"
+        },
+        "noi_dung": {
+            "type": "richtext"
+        },
+        "hinh_dai_dien": {
+            "type": "media",
+            "allowedTypes": ["images"],
+            "multiple": false
+        },
+        "khach_hang": {
+            "type": "string"
+        },
+        "nganh": {
+            "type": "string"
+        },
+        "ket_qua": {
+            "type": "json"
+        },
+        "seo": {
+            "type": "component",
+            "repeatable": false,
+            "component": "shared.seo-meta"
+        }
+    }
+}

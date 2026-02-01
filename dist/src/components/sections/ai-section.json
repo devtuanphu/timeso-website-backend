@@ -1,0 +1,30 @@
+{
+    "collectionName": "components_sections_ai_section",
+    "info": {
+        "displayName": "AI Section",
+        "description": "Section giới thiệu tính năng AI"
+    },
+    "options": {},
+    "attributes": {
+        "tieu_de": {
+            "type": "string",
+            "required": true
+        },
+        "tieu_de_noi_bat": {
+            "type": "string"
+        },
+        "mo_ta": {
+            "type": "text"
+        },
+        "hinh_anh": {
+            "type": "media",
+            "allowedTypes": ["images"],
+            "multiple": false
+        },
+        "tinh_nang": {
+            "type": "component",
+            "repeatable": true,
+            "component": "blocks.feature-item"
+        }
+    }
+}

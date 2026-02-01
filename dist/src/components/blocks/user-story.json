@@ -1,0 +1,25 @@
+{
+    "collectionName": "components_blocks_user_story",
+    "info": {
+        "displayName": "Câu Chuyện",
+        "description": "User story item"
+    },
+    "options": {},
+    "attributes": {
+        "tieu_de": {
+            "type": "string",
+            "required": true
+        },
+        "mo_ta": {
+            "type": "text"
+        },
+        "hinh_anh": {
+            "type": "media",
+            "allowedTypes": ["images"],
+            "multiple": false
+        },
+        "link": {
+            "type": "string"
+        }
+    }
+}

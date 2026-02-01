@@ -1,0 +1,46 @@
+{
+    "kind": "collectionType",
+    "collectionName": "khach_hangs",
+    "info": {
+        "singularName": "khach-hang",
+        "pluralName": "khach-hangs",
+        "displayName": "Khách Hàng",
+        "description": "Testimonials từ khách hàng"
+    },
+    "options": {
+        "draftAndPublish": false
+    },
+    "pluginOptions": {},
+    "attributes": {
+        "ten": {
+            "type": "string",
+            "required": true
+        },
+        "chuc_vu": {
+            "type": "string"
+        },
+        "cong_ty": {
+            "type": "string"
+        },
+        "noi_dung": {
+            "type": "text",
+            "required": true
+        },
+        "avatar": {
+            "type": "media",
+            "allowedTypes": ["images"],
+            "multiple": false
+        },
+        "logo_cong_ty": {
+            "type": "media",
+            "allowedTypes": ["images"],
+            "multiple": false
+        },
+        "so_sao": {
+            "type": "integer",
+            "min": 1,
+            "max": 5,
+            "default": 5
+        }
+    }
+}

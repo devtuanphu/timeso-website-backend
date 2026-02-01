@@ -1,0 +1,28 @@
+{
+    "collectionName": "components_shared_seo_meta",
+    "info": {
+        "displayName": "SEO Meta",
+        "description": "SEO metadata cho tất cả các trang"
+    },
+    "options": {},
+    "attributes": {
+        "tieu_de": {
+            "type": "string",
+            "required": true
+        },
+        "mo_ta": {
+            "type": "text"
+        },
+        "tu_khoa": {
+            "type": "string"
+        },
+        "hinh_og": {
+            "type": "media",
+            "allowedTypes": ["images"],
+            "multiple": false
+        },
+        "canonical_url": {
+            "type": "string"
+        }
+    }
+}

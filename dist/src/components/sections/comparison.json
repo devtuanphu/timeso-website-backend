@@ -1,0 +1,20 @@
+{
+    "collectionName": "components_sections_comparison",
+    "info": {
+        "displayName": "So Sánh",
+        "description": "Section so sánh tính năng"
+    },
+    "options": {},
+    "attributes": {
+        "tieu_de": {
+            "type": "string",
+            "required": true
+        },
+        "mo_ta": {
+            "type": "text"
+        },
+        "du_lieu": {
+            "type": "json"
+        }
+    }
+}
