@@ -1,53 +1,45 @@
 #!/usr/bin/env python3
 """
 Convert SQLite data.db to PostgreSQL-compatible .sql dump.
-Usage: python3 sqlite_to_postgres.py
+Handles: timestamp conversion (epoch ms → ISO), boolean conversion, proper escaping.
 """
 
 import sqlite3
 import sys
 import os
-import re
-from datetime import datetime
+from datetime import datetime, timezone
 
 DB_PATH = os.path.join(os.path.dirname(__file__), '.tmp/data.db')
-OUTPUT_PATH = os.path.join(os.path.dirname(__file__), 'strapi_postgres_dump.sql')
+OUTPUT_PATH = os.path.join(os.path.dirname(__file__), 'strapi_data_only.sql')
+
+TIMESTAMP_COLS = {'created_at', 'updated_at', 'published_at', 'expires_at', 'prefill_at', 'last_login_at', 'token_expires_at', 'executed_at', 'released_at', 'scheduled_at'}
 
 def escape_pg(value):
-    """Escape a value for PostgreSQL"""
     if value is None:
         return 'NULL'
     if isinstance(value, (int, float)):
         return str(value)
     if isinstance(value, bytes):
-        # Convert bytes to hex for bytea
         return "E'\\\\x" + value.hex() + "'"
-    # String — escape single quotes
     s = str(value).replace("'", "''")
-    # Escape backslashes
-    s = s.replace('\\', '\\\\')
-    return f"E'{s}'"
+    return f"'{s}'"
 
-def get_pg_type(sqlite_type, col_name):
-    """Map SQLite types to PostgreSQL types"""
-    t = (sqlite_type or '').upper()
-    if 'INT' in t:
-        if 'AUTOINCREMENT' in t or col_name == 'id':
-            return 'SERIAL'
-        return 'INTEGER'
-    if 'REAL' in t or 'FLOAT' in t or 'DOUBLE' in t or 'NUMERIC' in t or 'DECIMAL' in t:
-        return 'DOUBLE PRECISION'
-    if 'BOOL' in t:
-        return 'BOOLEAN'
-    if 'BLOB' in t:
-        return 'BYTEA'
-    if 'DATE' in t or 'TIME' in t:
-        return 'TIMESTAMP'
-    if 'JSON' in t:
-        return 'JSONB'
-    if 'TEXT' in t or 'CHAR' in t or 'CLOB' in t or 'VARCHAR' in t:
-        return 'TEXT'
-    return 'TEXT'
+def is_epoch_ms(val):
+    """Check if a value looks like epoch milliseconds (13 digits, reasonable range)"""
+    try:
+        n = int(val)
+        return 1000000000000 <= n <= 9999999999999
+    except (ValueError, TypeError):
+        return False
+
+def epoch_to_timestamp(val):
+    """Convert epoch milliseconds to PostgreSQL timestamp string"""
+    try:
+        n = int(val)
+        dt = datetime.fromtimestamp(n / 1000.0, tz=timezone.utc)
+        return f"'{dt.strftime('%Y-%m-%d %H:%M:%S.%f')[:-3]}'"
+    except (ValueError, TypeError, OSError):
+        return escape_pg(val)
 
 def main():
     if not os.path.exists(DB_PATH):
@@ -55,115 +47,87 @@ def main():
         sys.exit(1)
 
     conn = sqlite3.connect(DB_PATH)
-    conn.row_factory = sqlite3.Row
     cursor = conn.cursor()
 
-    # Get all tables
     cursor.execute("SELECT name FROM sqlite_master WHERE type='table' AND name NOT LIKE 'sqlite_%' ORDER BY name")
     tables = [row[0] for row in cursor.fetchall()]
 
     print(f"Found {len(tables)} tables")
 
     with open(OUTPUT_PATH, 'w', encoding='utf-8') as f:
-        f.write(f"-- Strapi SQLite to PostgreSQL dump\n")
+        f.write(f"-- Strapi Data Import (INSERT only)\n")
         f.write(f"-- Generated: {datetime.now().isoformat()}\n")
         f.write(f"-- Source: {DB_PATH}\n\n")
         f.write("SET client_encoding = 'UTF8';\n")
         f.write("SET standard_conforming_strings = on;\n\n")
 
-        for table_name in tables:
-            print(f"  Processing: {table_name}")
+        # Truncate all tables first
+        f.write("-- Truncate all tables\n")
+        # Reverse order to respect FK constraints
+        for table_name in reversed(tables):
+            f.write(f'TRUNCATE TABLE "{table_name}" CASCADE;\n')
+        f.write('\n')
 
-            # Get table schema
+        for table_name in tables:
             cursor.execute(f"PRAGMA table_info('{table_name}')")
             columns = cursor.fetchall()
-
             if not columns:
                 continue
 
-            # DROP TABLE
-            f.write(f"-- ===== {table_name} =====\n")
-            f.write(f"DROP TABLE IF EXISTS \"{table_name}\" CASCADE;\n")
+            col_names = [col[1] for col in columns]
+            col_types_raw = [col[2].upper() for col in columns]
 
-            # CREATE TABLE
-            col_defs = []
-            has_id = False
-            for col in columns:
-                col_name = col[1]
-                col_type = col[2]
-                not_null = col[3]
-                default_val = col[4]
-                is_pk = col[5]
+            # Detect which columns are timestamps
+            ts_indices = set()
+            for i, name in enumerate(col_names):
+                if name in TIMESTAMP_COLS or 'DATETIME' in col_types_raw[i] or 'TIMESTAMP' in col_types_raw[i]:
+                    ts_indices.add(i)
 
-                pg_type = get_pg_type(col_type, col_name)
+            # Detect boolean columns
+            bool_indices = set()
+            for i, t in enumerate(col_types_raw):
+                if 'BOOL' in t:
+                    bool_indices.add(i)
 
-                if col_name == 'id' and is_pk:
-                    has_id = True
-                    col_defs.append(f'  "{col_name}" SERIAL PRIMARY KEY')
-                else:
-                    parts = [f'  "{col_name}" {pg_type}']
-                    if not_null and not is_pk:
-                        parts.append('NOT NULL')
-                    if default_val is not None and not is_pk:
-                        # Convert SQLite defaults
-                        dv = str(default_val)
-                        if dv.lower() in ('null', 'none'):
-                            pass
-                        elif pg_type == 'BOOLEAN':
-                            parts.append(f"DEFAULT {'true' if dv in ('1', 'true', 'TRUE') else 'false'}")
-                        else:
-                            parts.append(f"DEFAULT {escape_pg(default_val)}")
-                    col_defs.append(' '.join(parts))
-
-            f.write(f"CREATE TABLE \"{table_name}\" (\n")
-            f.write(',\n'.join(col_defs))
-            f.write('\n);\n\n')
-
-            # Get data
             cursor.execute(f'SELECT * FROM "{table_name}"')
             rows = cursor.fetchall()
 
             if not rows:
-                f.write(f"-- No data in {table_name}\n\n")
                 continue
 
-            col_names = [col[1] for col in columns]
             col_names_quoted = ', '.join([f'"{c}"' for c in col_names])
 
-            # Insert data
-            f.write(f"-- Data for {table_name} ({len(rows)} rows)\n")
+            f.write(f"-- {table_name} ({len(rows)} rows)\n")
             for row in rows:
                 values = []
                 for i, val in enumerate(row):
-                    col_name = col_names[i]
-                    col_type = get_pg_type(columns[i][2], col_name)
-                    
                     if val is None:
                         values.append('NULL')
-                    elif col_type == 'BOOLEAN':
+                    elif i in ts_indices:
+                        if is_epoch_ms(val):
+                            values.append(epoch_to_timestamp(val))
+                        elif val == '' or val == 0:
+                            values.append('NULL')
+                        else:
+                            values.append(escape_pg(str(val)))
+                    elif i in bool_indices:
                         values.append('true' if val in (1, '1', True, 'true') else 'false')
-                    elif col_type in ('INTEGER', 'SERIAL', 'DOUBLE PRECISION'):
-                        values.append(str(val))
-                    elif col_type == 'JSONB' and val:
-                        values.append(escape_pg(str(val)) + '::jsonb')
                     else:
                         values.append(escape_pg(val))
 
-                f.write(f"INSERT INTO \"{table_name}\" ({col_names_quoted}) VALUES ({', '.join(values)});\n")
+                f.write(f'INSERT INTO "{table_name}" ({col_names_quoted}) VALUES ({", ".join(values)});\n')
 
-            # Reset sequence for id columns
-            if has_id:
-                f.write(f"\nSELECT setval(pg_get_serial_sequence('\"{table_name}\"', 'id'), COALESCE((SELECT MAX(id) FROM \"{table_name}\"), 0) + 1, false);\n")
+            # Reset sequence
+            if col_names[0] == 'id':
+                f.write(f"SELECT setval(pg_get_serial_sequence('{table_name}', 'id'), COALESCE((SELECT MAX(id) FROM \"{table_name}\"), 0) + 1, false);\n")
 
             f.write('\n')
 
         f.write("-- Done.\n")
 
     conn.close()
-    file_size = os.path.getsize(OUTPUT_PATH)
-    print(f"\n✅ Output: {OUTPUT_PATH}")
-    print(f"   Size: {file_size / 1024:.1f} KB")
-    print(f"   Tables: {len(tables)}")
+    sz = os.path.getsize(OUTPUT_PATH)
+    print(f"\n✅ Output: {OUTPUT_PATH} ({sz / 1024:.1f} KB)")
 
 if __name__ == '__main__':
     main()
