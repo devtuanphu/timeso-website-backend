@@ -103,6 +103,7 @@ export interface BlocksUserStory extends Struct.ComponentSchema {
   attributes: {
     hinh_anh: Schema.Attribute.Media<"images">;
     link: Schema.Attribute.String;
+    mau_nen: Schema.Attribute.String;
     mo_ta: Schema.Attribute.Text;
     tieu_de: Schema.Attribute.String & Schema.Attribute.Required;
   };

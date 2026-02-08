@@ -1,0 +1,32 @@
+{
+    "kind": "singleType",
+    "collectionName": "chinh_sach_bao_mats",
+    "info": {
+        "singularName": "chinh-sach-bao-mat",
+        "pluralName": "chinh-sach-bao-mats",
+        "displayName": "Chính Sách Bảo Mật",
+        "description": "Nội dung trang Chính Sách Bảo Mật"
+    },
+    "options": {
+        "draftAndPublish": false
+    },
+    "pluginOptions": {},
+    "attributes": {
+        "seo": {
+            "type": "component",
+            "repeatable": false,
+            "component": "shared.seo-meta"
+        },
+        "tieu_de": {
+            "type": "string",
+            "required": true
+        },
+        "noi_dung": {
+            "type": "richtext",
+            "required": true
+        },
+        "ngay_cap_nhat": {
+            "type": "date"
+        }
+    }
+}

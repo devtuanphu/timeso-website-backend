@@ -484,6 +484,36 @@ export interface ApiChamCongChamCong extends Struct.SingleTypeSchema {
   };
 }
 
+export interface ApiChinhSachBaoMatChinhSachBaoMat extends Struct.SingleTypeSchema {
+  collectionName: "chinh_sach_bao_mats";
+  info: {
+    description: "N\u1ED9i dung trang Ch\u00EDnh S\u00E1ch B\u1EA3o M\u1EADt";
+    displayName: "Ch\u00EDnh S\u00E1ch B\u1EA3o M\u1EADt";
+    pluralName: "chinh-sach-bao-mats";
+    singularName: "chinh-sach-bao-mat";
+  };
+  options: {
+    draftAndPublish: false;
+  };
+  attributes: {
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<"oneToOne", "admin::user"> & Schema.Attribute.Private;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      "oneToMany",
+      "api::chinh-sach-bao-mat.chinh-sach-bao-mat"
+    > &
+      Schema.Attribute.Private;
+    ngay_cap_nhat: Schema.Attribute.Date;
+    noi_dung: Schema.Attribute.RichText & Schema.Attribute.Required;
+    publishedAt: Schema.Attribute.DateTime;
+    seo: Schema.Attribute.Component<"shared.seo-meta", false>;
+    tieu_de: Schema.Attribute.String & Schema.Attribute.Required;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<"oneToOne", "admin::user"> & Schema.Attribute.Private;
+  };
+}
+
 export interface ApiDoiTacDoiTac extends Struct.CollectionTypeSchema {
   collectionName: "doi_tacs";
   info: {
@@ -1312,6 +1342,7 @@ declare module "@strapi/strapi" {
       "api::bai-viet.bai-viet": ApiBaiVietBaiViet;
       "api::case-study.case-study": ApiCaseStudyCaseStudy;
       "api::cham-cong.cham-cong": ApiChamCongChamCong;
+      "api::chinh-sach-bao-mat.chinh-sach-bao-mat": ApiChinhSachBaoMatChinhSachBaoMat;
       "api::doi-tac.doi-tac": ApiDoiTacDoiTac;
       "api::khach-hang.khach-hang": ApiKhachHangKhachHang;
       "api::lien-he.lien-he": ApiLienHeLienHe;
