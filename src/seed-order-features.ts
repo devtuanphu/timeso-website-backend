@@ -10,7 +10,7 @@ import * as path from "path";
 
 const STRAPI_URL = process.env.STRAPI_URL || "http://localhost:1337";
 const API_TOKEN = process.env.STRAPI_API_TOKEN || "";
-const FRONTEND_PUBLIC = path.resolve(__dirname, "../../public");
+const FRONTEND_PUBLIC = path.resolve(__dirname, "../public");
 const UPLOADS_DIR = path.resolve(__dirname, "../public/uploads");
 
 async function uploadFile(

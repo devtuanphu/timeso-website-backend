@@ -1,0 +1,9 @@
+<svg preserveAspectRatio="none" width="100%" height="100%" overflow="visible" style="display: block;" viewBox="0 0 13.3333 13.3333" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path id="Icon (Stroke)" fill-rule="evenodd" clip-rule="evenodd" d="M6.07741 0.244078C6.40285 -0.0813592 6.93049 -0.0813592 7.25592 0.244078L13.0893 6.07741C13.4147 6.40285 13.4147 6.93049 13.0893 7.25592L7.25592 13.0893C6.93049 13.4147 6.40285 13.4147 6.07741 13.0893C5.75197 12.7638 5.75197 12.2362 6.07741 11.9107L10.4882 7.5H0.833333C0.373096 7.5 0 7.1269 0 6.66667C0 6.20643 0.373096 5.83333 0.833333 5.83333H10.4882L6.07741 1.42259C5.75197 1.09715 5.75197 0.569515 6.07741 0.244078Z" fill="url(#paint0_linear_10273_9215)"/>
+<defs>
+<linearGradient id="paint0_linear_10273_9215" x1="1.60494" y1="7.02721e-08" x2="12.3457" y2="12.5926" gradientUnits="userSpaceOnUse">
+<stop stop-color="#00E2E2"/>
+<stop offset="1" stop-color="#00969E"/>
+</linearGradient>
+</defs>
+</svg>
