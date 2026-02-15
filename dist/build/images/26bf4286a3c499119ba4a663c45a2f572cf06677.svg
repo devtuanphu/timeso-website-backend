@@ -1,0 +1,13 @@
+<svg preserveAspectRatio="none" width="100%" height="100%" overflow="visible" style="display: block;" viewBox="0 0 2400 432.463" fill="none" xmlns="http://www.w3.org/2000/svg">
+<g id="Background pattern">
+<foreignObject x="-111.111" y="-111.111" width="2622.22" height="609.778"><div xmlns="http://www.w3.org/1999/xhtml" style="backdrop-filter:blur(55.56px);clip-path:url(#bgblur_0_10260_8893_clip_path);height:100%;width:100%"></div></foreignObject><path id="Background" data-figma-bg-blur-radius="111.111" d="M0 0H2400V87.5555L0 387.555V0Z" fill="var(--fill-0, #F5FFFF)"/>
+<path id="Right band 3" d="M1800 162.006L2266.67 103.653V174.764L1800 233.117V162.006Z" fill="var(--fill-0, #34D9D9)"/>
+<path id="Right band 2" d="M1320 151.787L2000 66.4443V137.555L1320 222.898V151.787Z" fill="var(--fill-0, #8AE9E9)"/>
+<path id="Right band 1" d="M1497.78 58.3522L1964.44 0V71.1111L1497.78 129.463V58.3522Z" fill="var(--fill-0, #B0F0F0)"/>
+<path id="Left band 1" d="M400 266.463L866.667 208.11V279.221L400 337.574V266.463Z" fill="var(--fill-0, #34D9D9)"/>
+<path id="Left band 2" d="M216 361.352L682.667 303V374.111L216 432.463V361.352Z" fill="var(--fill-0, #B0F0F0)"/>
+</g>
+<defs>
+<clipPath id="bgblur_0_10260_8893_clip_path" transform="translate(111.111 111.111)"><path d="M0 0H2400V87.5555L0 387.555V0Z"/>
+</clipPath></defs>
+</svg>
