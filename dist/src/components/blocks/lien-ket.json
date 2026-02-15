@@ -1,0 +1,23 @@
+{
+    "collectionName": "components_blocks_lien_ket",
+    "info": {
+        "displayName": "Liên Kết",
+        "description": "Link với label, URL và icon tùy chọn"
+    },
+    "options": {},
+    "attributes": {
+        "nhan": {
+            "type": "string",
+            "required": true
+        },
+        "duong_dan": {
+            "type": "string",
+            "required": true
+        },
+        "icon": {
+            "type": "media",
+            "multiple": false,
+            "allowedTypes": ["images"]
+        }
+    }
+}

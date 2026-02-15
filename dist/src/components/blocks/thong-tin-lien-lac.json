@@ -1,0 +1,24 @@
+{
+    "collectionName": "components_blocks_thong_tin_lien_lac",
+    "info": {
+        "displayName": "Thông Tin Liên Lạc",
+        "description": "Mục liên hệ (Phone, Email, Zalo)"
+    },
+    "options": {},
+    "attributes": {
+        "nhan": {
+            "type": "string",
+            "required": true
+        },
+        "gia_tri": {
+            "type": "string",
+            "required": true
+        },
+        "loai": {
+            "type": "enumeration",
+            "enum": ["phone", "email", "zalo"],
+            "required": true,
+            "default": "phone"
+        }
+    }
+}

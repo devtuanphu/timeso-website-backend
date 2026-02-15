@@ -1,0 +1,54 @@
+{
+    "kind": "singleType",
+    "collectionName": "chan_trangs",
+    "info": {
+        "singularName": "chan-trang",
+        "pluralName": "chan-trangs",
+        "displayName": "Chân Trang",
+        "description": "Nội dung phần chân trang (Footer)"
+    },
+    "options": {
+        "draftAndPublish": false
+    },
+    "pluginOptions": {},
+    "attributes": {
+        "logo": {
+            "type": "media",
+            "multiple": false,
+            "allowedTypes": ["images"]
+        },
+        "lien_lac": {
+            "type": "component",
+            "repeatable": true,
+            "component": "blocks.thong-tin-lien-lac"
+        },
+        "dieu_huong": {
+            "type": "component",
+            "repeatable": true,
+            "component": "blocks.lien-ket"
+        },
+        "mang_xa_hoi": {
+            "type": "component",
+            "repeatable": true,
+            "component": "blocks.lien-ket"
+        },
+        "app_store_url": {
+            "type": "string"
+        },
+        "google_play_url": {
+            "type": "string"
+        },
+        "ban_quyen": {
+            "type": "string",
+            "default": "© 2025, Copyright owned by Timeso"
+        },
+        "hotline": {
+            "type": "string"
+        },
+        "lien_ket_chinh_sach": {
+            "type": "component",
+            "repeatable": true,
+            "component": "blocks.lien-ket"
+        }
+    }
+}

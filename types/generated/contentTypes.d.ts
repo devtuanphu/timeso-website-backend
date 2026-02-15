@@ -484,6 +484,39 @@ export interface ApiChamCongChamCong extends Struct.SingleTypeSchema {
   };
 }
 
+export interface ApiChanTrangChanTrang extends Struct.SingleTypeSchema {
+  collectionName: "chan_trangs";
+  info: {
+    description: "N\u1ED9i dung ph\u1EA7n ch\u00E2n trang (Footer)";
+    displayName: "Ch\u00E2n Trang";
+    pluralName: "chan-trangs";
+    singularName: "chan-trang";
+  };
+  options: {
+    draftAndPublish: false;
+  };
+  attributes: {
+    app_store_url: Schema.Attribute.String;
+    ban_quyen: Schema.Attribute.String &
+      Schema.Attribute.DefaultTo<"\u00A9 2025, Copyright owned by Timeso">;
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<"oneToOne", "admin::user"> & Schema.Attribute.Private;
+    dieu_huong: Schema.Attribute.Component<"blocks.lien-ket", true>;
+    google_play_url: Schema.Attribute.String;
+    hotline: Schema.Attribute.String;
+    lien_ket_chinh_sach: Schema.Attribute.Component<"blocks.lien-ket", true>;
+    lien_lac: Schema.Attribute.Component<"blocks.thong-tin-lien-lac", true>;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<"oneToMany", "api::chan-trang.chan-trang"> &
+      Schema.Attribute.Private;
+    logo: Schema.Attribute.Media<"images">;
+    mang_xa_hoi: Schema.Attribute.Component<"blocks.lien-ket", true>;
+    publishedAt: Schema.Attribute.DateTime;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<"oneToOne", "admin::user"> & Schema.Attribute.Private;
+  };
+}
+
 export interface ApiChinhSachBaoMatChinhSachBaoMat extends Struct.SingleTypeSchema {
   collectionName: "chinh_sach_bao_mats";
   info: {
@@ -1342,6 +1375,7 @@ declare module "@strapi/strapi" {
       "api::bai-viet.bai-viet": ApiBaiVietBaiViet;
       "api::case-study.case-study": ApiCaseStudyCaseStudy;
       "api::cham-cong.cham-cong": ApiChamCongChamCong;
+      "api::chan-trang.chan-trang": ApiChanTrangChanTrang;
       "api::chinh-sach-bao-mat.chinh-sach-bao-mat": ApiChinhSachBaoMatChinhSachBaoMat;
       "api::doi-tac.doi-tac": ApiDoiTacDoiTac;
       "api::khach-hang.khach-hang": ApiKhachHangKhachHang;

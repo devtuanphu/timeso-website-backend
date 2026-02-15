@@ -27,6 +27,19 @@ export interface BlocksFeatureItem extends Struct.ComponentSchema {
   };
 }
 
+export interface BlocksLienKet extends Struct.ComponentSchema {
+  collectionName: "components_blocks_lien_ket";
+  info: {
+    description: "Link v\u1EDBi label, URL v\u00E0 icon t\u00F9y ch\u1ECDn";
+    displayName: "Li\u00EAn K\u1EBFt";
+  };
+  attributes: {
+    duong_dan: Schema.Attribute.String & Schema.Attribute.Required;
+    icon: Schema.Attribute.Media<"images">;
+    nhan: Schema.Attribute.String & Schema.Attribute.Required;
+  };
+}
+
 export interface BlocksPricingPlan extends Struct.ComponentSchema {
   collectionName: "components_blocks_pricing_plan";
   info: {
@@ -91,6 +104,21 @@ export interface BlocksTestimonialItem extends Struct.ComponentSchema {
       > &
       Schema.Attribute.DefaultTo<5>;
     ten: Schema.Attribute.String & Schema.Attribute.Required;
+  };
+}
+
+export interface BlocksThongTinLienLac extends Struct.ComponentSchema {
+  collectionName: "components_blocks_thong_tin_lien_lac";
+  info: {
+    description: "M\u1EE5c li\u00EAn h\u1EC7 (Phone, Email, Zalo)";
+    displayName: "Th\u00F4ng Tin Li\u00EAn L\u1EA1c";
+  };
+  attributes: {
+    gia_tri: Schema.Attribute.String & Schema.Attribute.Required;
+    loai: Schema.Attribute.Enumeration<["phone", "email", "zalo"]> &
+      Schema.Attribute.Required &
+      Schema.Attribute.DefaultTo<"phone">;
+    nhan: Schema.Attribute.String & Schema.Attribute.Required;
   };
 }
 
@@ -405,10 +433,12 @@ declare module "@strapi/strapi" {
     export interface ComponentSchemas {
       "blocks.all-in-one-module": BlocksAllInOneModule;
       "blocks.feature-item": BlocksFeatureItem;
+      "blocks.lien-ket": BlocksLienKet;
       "blocks.pricing-plan": BlocksPricingPlan;
       "blocks.stat-item": BlocksStatItem;
       "blocks.target-audience-item": BlocksTargetAudienceItem;
       "blocks.testimonial-item": BlocksTestimonialItem;
+      "blocks.thong-tin-lien-lac": BlocksThongTinLienLac;
       "blocks.user-story": BlocksUserStory;
       "sections.ai-section": SectionsAiSection;
       "sections.all-in-one": SectionsAllInOne;
